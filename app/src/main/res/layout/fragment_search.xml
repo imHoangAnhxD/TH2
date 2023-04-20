@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="nhập tên chi tiêu"/>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/eFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:hint="Từ ngày"/>
+    <EditText
+        android:id="@+id/eTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:hint="Đến ngày"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+    <Spinner
+        android:id="@+id/spCategory"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btSearch"
+            android:layout_weight="0.5"
+            android:text="Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvTong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tổng"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycleView"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

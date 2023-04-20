@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    android:background="@color/cryblue">
+    <LinearLayout
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:textSize="16dp"
+                android:text="Quần"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:textSize="16dp"
+                android:text="Mua sắm"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gía 550k"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textColor="@color/redbum"
+            />
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="20/10/2022"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
