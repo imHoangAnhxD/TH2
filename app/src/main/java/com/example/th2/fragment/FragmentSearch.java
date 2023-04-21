@@ -2,6 +2,7 @@ package com.example.th2.fragment;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,15 +24,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.th2.AddActivity;
 import com.example.th2.R;
+import com.example.th2.UpdateDeleteActivity;
 import com.example.th2.adapter.RecycleViewAdapter;
 import com.example.th2.dal.SQLiteHelper;
 import com.example.th2.model.Item;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class FragmentSearch extends Fragment implements View.OnClickListener{
+public class FragmentSearch extends Fragment implements View.OnClickListener,RecycleViewAdapter.ItemListener {
     private RecyclerView recyclerView;
     private TextView tvTong;
     private Button btSearch;
@@ -59,6 +63,8 @@ public class FragmentSearch extends Fragment implements View.OnClickListener{
         LinearLayoutManager manager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
+        adapter.setItemListener(this);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -171,4 +177,21 @@ public class FragmentSearch extends Fragment implements View.OnClickListener{
             }
         }
     }
+    @Override
+    public void onItemClick(View view, int position) {
+        Item item=adapter.getItem(position);
+        Intent intent=new Intent(getActivity(), UpdateDeleteActivity.class);
+        intent.putExtra("item",item);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        List<Item> list=db.getAll();
+        adapter.setList(list);
+    }
+
+
 }
