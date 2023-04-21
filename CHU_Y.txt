@@ -13,3 +13,7 @@
             String d=rs.getString(4);
             list.add(new Item(id,title,c,p,d));
         }
+        // Rating bar
+        RatingBar ratingBar = findViewById(R.id.ratingBar);
+       float rating = ratingBar.getRating();
+       String ratingStr = Float.toString(rating);
