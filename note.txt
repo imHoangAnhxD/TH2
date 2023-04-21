@@ -1,0 +1,15 @@
+ public List<Item> searchByTitle(String key){
+        List<Item> list=new ArrayList<>();
+        String whereClause="title like ?";
+        String[] whereArgs={"%"+key+"%"};
+        SQLiteDatabase st=getReadableDatabase();
+        Cursor rs=st.rawQuery("SELECT * FROM items WHERE "+whereClause+" ORDER BY CAST(price AS INTEGER) DESC", whereArgs); // sắp xếp tiền cao nhất xuống thấp nhất
+        //Cursor rs=st.rawQuery("SELECT * FROM items WHERE "+whereClause+" ORDER BY CAST(price AS INTEGER) ASC", whereArgs); //sắp xếp thấp đến cao
+        while (rs!=null && rs.moveToNext()){
+            int id=rs.getInt(0);
+            String title =rs.getString(1);
+            String c =rs.getString(2);
+            String p =rs.getString(3);
+            String d=rs.getString(4);
+            list.add(new Item(id,title,c,p,d));
+        }
